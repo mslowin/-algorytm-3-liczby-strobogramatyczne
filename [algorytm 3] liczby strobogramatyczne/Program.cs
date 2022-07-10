@@ -10,8 +10,9 @@ namespace _algorytm_3__liczby_strobogramatyczne
             bool run = true;
 
             Console.WriteLine("The app checks if the number is stroboramatic. Press q to exit.");
-            
-            while(run)
+            Console.WriteLine();
+
+            while (run)
             {
                 string number = Console.ReadLine();
                 if(number == "q") // if the input is "q"
@@ -23,6 +24,14 @@ namespace _algorytm_3__liczby_strobogramatyczne
                     if(CheckNumber(number))
                     {
                         Console.WriteLine("The number IS stroboramatic :D");
+                        if(IsPrime(int.Parse(number)))
+                        {
+                            Console.WriteLine("and it IS prime :D");
+                        }
+                        else
+                        {
+                            Console.WriteLine("but it IS NOT prime :(");
+                        }
                     }
                     else
                     {
@@ -61,6 +70,26 @@ namespace _algorytm_3__liczby_strobogramatyczne
                 return false;
             }
 
+        }
+
+        static bool IsPrime(int number)
+        {
+            int counter = 0;
+            for (int i = 1; i <= number; i++)
+            {
+                if (number % i == 0)
+                {
+                    counter++;
+                }
+            }
+            if (counter == 2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
